@@ -1,0 +1,16 @@
+<h2>User Management System</h2>
+
+<input [(ngModel)]="name" placeholder="Name">
+<input [(ngModel)]="role" placeholder="Role">
+<button (click)="addUser()">Add User</button>
+
+<hr>
+
+<input [(ngModel)]="selectedRole" placeholder="Filter by role">
+
+<ul>
+  <li *ngFor="let user of filteredUsers">
+    {{ user.name }} - {{ user.role }}
+    <button (click)="removeUser(user.id)">Remove</button>
+  </li>
+</ul>

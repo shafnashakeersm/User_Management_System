@@ -1,6 +1,12 @@
-input {
-  margin: 5px;
+.adminBg {
+  background-color: #ffe5e5;
+  font-weight: bold;
 }
-button {
-  margin-left: 5px;
+
+.userBg {
+  background-color: #f0f8ff;
+}
+
+.guestBg {
+  opacity: 0.6;
 }

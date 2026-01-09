@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HoverHighlightDirective } from '../directives/hover-highlight.directive';
+import { IfAdminDirective } from '../directives/if-admin.directive';
 
 interface User {
   id: number;
@@ -11,7 +13,12 @@ interface User {
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    HoverHighlightDirective,
+    IfAdminDirective
+  ],
   templateUrl: './user.html',
   styleUrls: ['./user.css']
 })
@@ -19,7 +26,6 @@ export class UserComponent {
   users: User[] = [];
   name = '';
   role = '';
-  selectedRole = '';
   idCounter = 1;
 
   addUser() {
@@ -39,8 +45,6 @@ export class UserComponent {
   }
 
   get filteredUsers(): User[] {
-    return this.selectedRole
-      ? this.users.filter(user => user.role === this.selectedRole)
-      : this.users;
+    return this.users;
   }
 }
